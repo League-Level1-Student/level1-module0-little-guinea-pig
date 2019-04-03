@@ -5,6 +5,8 @@ package photo_quiz;
  */
 
 import java.awt.Component;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -14,14 +16,52 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class PhotoQuiz {
+public class PhotoQuiz implements MouseMotionListener {
 
 	public void run() throws Exception {
-
+		int score = (0);
 		JFrame quizWindow = new JFrame();
 		quizWindow.setVisible(true);
 		// This will make sure the program exits when you close the window
 		quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		String image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg/1200px-Pearl_Winter_White_Russian_Dwarf_Hamster_-_Front.jpg";
+		Component comp = createImage(image);
+		quizWindow.add(comp);
+		quizWindow.pack();
+		comp.addMouseMotionListener(this);
+		String answer = JOptionPane.showInputDialog("Is this a hamster or a guinea pig?");
+		if (answer.equals("hamster")){
+			JOptionPane.showMessageDialog(null,"Correct");
+			score +=1;
+			
+		}
+		else {
+			JOptionPane.showMessageDialog(null,"Incorrect");
+		}
+		quizWindow.remove(comp);
+		String imageTwo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8BnFZUVdoTfERgJ_-xGcK2WOhwwFUERypWnif1HfmnvHJnEk";
+		Component c = createImage(imageTwo);
+		quizWindow.add(c);
+		quizWindow.pack();
+		String answerTwo = JOptionPane.showInputDialog("Is this a hamster or a guinea pig?");
+		if (answerTwo.equals("guinea pig")){
+			JOptionPane.showMessageDialog(null,"Correct");
+			score +=1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null,"Incorrect");
+		}
+		JOptionPane.showMessageDialog(null,"You scored " + score + " out of 2.");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
@@ -62,6 +102,18 @@ public class PhotoQuiz {
 		Icon icon = new ImageIcon(url);
 		JLabel imageLabel = new JLabel(icon);
 		return imageLabel;
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null,"mouse Dragged");
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null,"mouse Moved");
 	}
 
 	/* OPTIONAL */

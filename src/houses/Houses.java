@@ -36,17 +36,29 @@ public class Houses {
 		}
 		t.penDown();
 		t.setPenColor(r, g, b);
-		t.move(h);
-		t.turn(45);
-		t.move(20);
-		t.turn(90);
-		t.move(20);
-		t.turn(45);
-		t.move(h);
-		t.turn(-90);
-		t.move(30);
-		t.turn(-90);	
-	}
+		if (height.equals("large")) {
+			t.move(h);
+			t.turn(90);
+			t.move(40);
+			t.turn(90);
+			t.move(h);
+			t.turn(-90);
+			t.move(30);
+			t.turn(-90);
+		}
+
+		else {
+			t.move(h);
+			t.turn(45);
+			t.move(20);
+			t.turn(90);
+			t.move(20);
+			t.turn(45);
+			t.move(h);
+			t.turn(-90);
+			t.move(30);
+			t.turn(-90);	
+		}}
 public static void drawFlatRoof(String height, int r, int g, int b) {
 		
 		int h = 0;

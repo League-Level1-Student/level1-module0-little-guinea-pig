@@ -14,6 +14,21 @@ import javax.swing.JPanel;
 
 public class MyFirstSwingGUI {
 	public void run() {
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JLabel label = new JLabel();
+		label.setText("Hello World!");
+		panel.add(label);
+		frame.pack();
+		label.setIcon(loadImage());
+		frame.pack();
+		
+		
+		
+		
 
 		// 1. Create and initialize an object of the JFrame class
 
