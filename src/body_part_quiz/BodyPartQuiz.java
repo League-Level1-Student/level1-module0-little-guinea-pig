@@ -39,16 +39,21 @@ public class BodyPartQuiz {
 		imageIterator = imageList.iterator();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.add(panel);
+		
 
 		// 3. Change the size of the window so that you can only see part of the
 		// image.
-		window.setSize(500, 500);
+		window.setSize(100, 100);
 
 		showNextImage();
 
 	}
 
 	private void startQuiz() {
+		int score = 0;
+		
+		
+		
 
 		// 1. Make an int variable to hold the score.
 
@@ -56,6 +61,14 @@ public class BodyPartQuiz {
 
 		// 4. Ask the user who this person is and store their answer
 		String guess = JOptionPane.showInputDialog("who is this?");
+		if (guess.equals("arnold")) {
+			JOptionPane.showInputDialog("Correct!");
+			score += 1;
+			
+		}
+		else {
+			JOptionPane.showInputDialog("Incorrect. The correct answer was 'arnold'.");
+		}
 
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
@@ -65,6 +78,37 @@ public class BodyPartQuiz {
 
 		// 7. Use the showNextImage() method below to get the next image
 		showNextImage();
+		String a = JOptionPane.showInputDialog("who is this?");
+		if (a.equals("leonardo")) {
+			JOptionPane.showInputDialog("Correct!");
+			score += 1;
+			
+		}
+		else {
+			JOptionPane.showInputDialog("Incorrect. The correct answer was 'leonardo'.");
+		}
+		showNextImage();
+		String b = JOptionPane.showInputDialog("who is this?");
+		if (b.equals("morgan")) {
+			JOptionPane.showInputDialog("Correct!");
+			score += 1;
+			
+		}
+		else {
+			JOptionPane.showInputDialog("Incorrect. The correct answer was 'morgan'.");
+		}
+		showNextImage();
+		String c = JOptionPane.showInputDialog("who is this?");
+		if (c.equals("jack")) {
+			JOptionPane.showInputDialog("Correct!");
+			score += 1;
+			
+		}
+		else {
+			JOptionPane.showInputDialog("Incorrect. The correct answer was 'jack'.");
+		}
+		JOptionPane.showInputDialog("You scored " + score + " out of 4.");
+		
 
 		// 8. .... repeat 4-7 for all your images.....
 

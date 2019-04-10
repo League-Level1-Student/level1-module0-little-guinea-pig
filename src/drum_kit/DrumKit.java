@@ -22,7 +22,43 @@ public class DrumKit implements MouseListener {
 
 	JLabel drumLabelWithImage;
 
+
 	public void run() throws MalformedURLException {
+		JFrame frame = new JFrame();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(2000, 2000);
+		frame.setTitle("frame title");
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		String image = "drum.jpeg";
+		drumLabelWithImage = createLabelImage(image);
+		panel.add(drumLabelWithImage);
+		panel.setLayout(new GridLayout());
+		frame.pack();
+		drumLabelWithImage.addMouseListener(this);
+		String imageTwo = "cymbal.jpg";
+		drumLabelWithImage = createLabelImage(imageTwo);
+		panel.add(drumLabelWithImage);
+		panel.setLayout(new GridLayout());
+		frame.pack();
+		drumLabelWithImage.addMouseListener(this);
+		String imageThree = "snare.jpg";
+		drumLabelWithImage = createLabelImage(imageThree);
+		panel.add(drumLabelWithImage);
+		panel.setLayout(new GridLayout());
+		frame.pack();
+		drumLabelWithImage.addMouseListener(this);
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
 
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
 
@@ -60,12 +96,17 @@ public class DrumKit implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
+		System.out.println("mouse clicked");
+
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
 
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
-														// clicked on
+		if (drumClicked.equals(drumLabelWithImage)) { 
+			// clicked on
+			playSound("381353__waveplay-old__120-bpm-basic-drum-loop.wav");
+		}
 
 		// 15. Download a drum sound and drop it into your "default package".
 		// You can find it on freesound.org. To download it, log in as
